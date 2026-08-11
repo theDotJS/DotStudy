@@ -1,0 +1,97 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ecf0f1;
+}
+
+.background {
+    min-height: 100vh;
+    background-image: url("./media/background1.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 90%;
+}
+
+.menu-lateral {
+    position: fixed;
+    left: -300px;
+    top: 0;
+    width: 300px;
+    height: 100%;
+    background-color: hwb(0 15% 84%);
+    z-index: 2;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}   
+
+.menu-lateral.ativo {
+    left: 0;
+
+}   
+
+.menu-lateral ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 90px;
+}
+
+.menu-lateral ul li {
+    padding: 15px 30px;
+
+}
+.menu-lateral ul li a {
+    text-decoration: none;
+    color: #ecf0f1;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+}
+
+.menu-lateral ul li:hover {
+    background-color: hsl(0, 0%, 41%);
+}
+
+.menu-lateral ul li a i:hover {
+    transform: translateX(5px) rotate(5deg);
+}
+
+
+.menu-lateral ul li a i {
+    font-size: 24px
+}
+
+.botao-menu {
+    background-color: hwb(0 41% 59%) ;
+    position: fixed;
+    left: 20px;
+    top: 20px;
+    z-index: 3;
+    border-radius: 5px;
+    font-size: 24px;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    color:black;
+    margin: 10px;
+}
+
+.botao-menu:hover {
+    background-color: hwb(0 21% 79%);
+}
+
+.botao-menu.ativo {
+    left: 320px;
+}
+
+.conteudo {
+    margin-left: 80px;
+    padding: 40px;
+    color: #ecf0f1;
+}
+
+.conteudo.ativo {
+    margin-left: 320px;
+}

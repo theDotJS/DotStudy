@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="perfil.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./main.css">
+    <title>Perfil</title>
+</head>
+<body>
+    <main class="container">
+        <form>
+         <h1>Perfil</h1> 
+          <div class="foto">
+             <img src="./media/userwhite.png">
+        </div>
+         <div class="input-box">
+            <input placeholder="Name" Type="text">
+         </div>
+
+        <div class="input-box">    
+           <input placeholder="Sobrenome" type="text">
+         </div>
+
+        <div class="input-box">
+            <input placeholder="Telefone" type="tel" maxlength="11" oninput="this.value = this.value.replace(/[^0-9]/g, '')" inputmode="numeric" >
+        </div>
+
+        <div class="input-box">
+            <input placeholder="Data de Nascimento" type="date">
+        </div>
+
+        <div class="salvar">
+            <button type="submit">Salvar</button>
+        </div>
+        
+        <div class="reset">
+            <button type="submit"><a>Redefinir</a></button>
+        </div>
+
+
+        </form>
+   </main> 
+ 
+    <button class="botao-menu">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+   
+    <nav class="menu-lateral">
+        <ul>
+            <li>
+                <a href="./menu.html">
+                <i class="fa-solid fa-house"></i>
+                Home
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa-solid fa-circle-info"></i>
+                Sobre
+                    </a>
+                </li>
+            <li>
+                <a href="#">
+                <i class="fa-solid fa-gears"></i>
+            Configurações
+                </a>
+            </li>
+            <li>
+                <a href="./perfil.html">
+                    <i class="fa-solid fa-circle-user"></i>
+                Perfil
+                </a>
+                </li>
+                <li>
+                    <div class="trilho">
+                        <div class="indicador"></div>
+                    </div>
+                </li>
+        </ul>
+    </nav>
+    
+    <div class="background"></div>
+
+</body>
+</html>
