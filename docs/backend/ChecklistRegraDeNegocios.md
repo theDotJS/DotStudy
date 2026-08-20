@@ -6,30 +6,19 @@
 
 ---
 
-- [ ] **S0 · Criar o projeto de banco gratuito** — Supabase ou Neon. Guardar a string de conexão em local combinado, **nunca no repositório**.
-- [ ] **S1 · Desenhar o modelo de dados** — Diagrama com as entidades e relações. Ponto de partida:
-
-```
-users            id, email, senha_hash, nome, criado_em
-tracks           id, titulo, descricao, slug
-levels           id, track_id, ordem, titulo, objetivo_aprendizagem
-content_blocks   id, level_id, ordem, tipo, corpo, fonte_url, fonte_titulo
-questions        id, level_id, enunciado, tipo
-alternatives     id, question_id, texto, correta (bool)
-user_progress    id, user_id, level_id, status, pontuacao, concluido_em
-attempts         id, user_id, question_id, alternative_id, correta, criado_em
-```
-
-- [ ] **S1 · Validar o modelo com Pedro e Gabriel** — Uma hora de conversa. Mudar tabela na semana 1 custa minutos; na semana 6 custa dias.
-- [ ] **S2 · Escrever o `schema.prisma`** — Traduzir o diagrama para o schema do Prisma, com tipos e relações.
-- [ ] **S2 · Rodar a primeira migration** — `prisma migrate dev`. **CRITÉRIO:** as tabelas aparecem no painel do banco.
-- [ ] **S2 · Definir a política de migrations** — Só uma pessoa gera migration por vez, e sempre avisa no grupo. Migration conflitante é um dos bugs mais chatos de desfazer.
-- [ ] **S3 · Criar índices nas chaves de busca** — `user_progress(user_id, level_id)` e `levels(track_id, ordem)`. Explicar no TCC por que índice acelera consulta.
-- [ ] **S4 · Escrever o script de seed** — Lê o JSON de conteúdo aprovado e insere no banco. Precisa ser rodável quantas vezes for preciso sem duplicar registro (`upsert`).
-- [ ] **S5 · Popular ambiente de desenvolvimento com dados falsos** — Usuários e progressos de mentira para o frontend testar sem depender de cadastro manual.
-- [ ] **S8 · Rotina de backup** — Exportar o banco antes de qualquer mudança grande. Uma pasta com o dump datado já resolve.
-- [ ] **S9 · Documentar o dicionário de dados** — Tabela por tabela, campo por campo, o que cada coisa significa. Vai direto para o anexo da monografia.
-
+- [ ] **S1 · Escrever as regras em português antes de virar código** — Um documento curto, frases afirmativas. Exemplo de partida:
+  - O nível 1 de uma trilha começa sempre disponível.
+  - Um nível fica disponível quando o nível de ordem imediatamente anterior está concluído.
+  - Um nível é concluído com 70% ou mais de acerto.
+  - Reprovar não bloqueia nada: o usuário pode tentar de novo, sem limite.
+  - Refazer um nível já concluído não diminui a pontuação.
+- [ ] **S1 · DECISÃO: definir a nota de corte** — 70% é chute razoável, não verdade. Deixe o número em configuração, não fixo no código, porque o betateste vai sugerir mudar.
+- [ ] **S5 · Implementar o cálculo de estado do nível** — Função que recebe usuário e trilha e devolve, por nível: `bloqueado | disponivel | concluido`.
+- [ ] **S6 · Implementar a correção de exercício** — Compara respostas com gabarito, calcula percentual, decide aprovação. **Só no servidor.**
+- [ ] **S6 · Implementar o registro de tentativa** — Toda submissão vira linha em `attempts`, mesmo reprovada. Esses dados são a matéria-prima da análise do TCC.
+- [ ] **S7 · Implementar o desbloqueio** — Aprovação em um nível libera o próximo, dentro de uma transação de banco (ou grava tudo, ou não grava nada).
+- [ ] **S7 · Escrever testes das regras** — No mínimo: nível 1 começa aberto; 69% reprova e 70% aprova; nível 3 não abre com nível 2 pendente. **CRITÉRIO:** os testes rodam com um comando e passam.
+- [ ] **S9 · Documentar cada regra e sua justificativa** — Por que 70% e não 60%. A banca pergunta.
 ---
 
 ## Calendário de Responsabilidades
