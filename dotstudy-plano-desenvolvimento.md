@@ -357,7 +357,7 @@ attempts         id, user_id, question_id, alternative_id, correta, criado_em
 
 #### Pesquisa de Negócios — Gabrielly
 
-- [ ] **S1 · Analisar os concorrentes com método** — Duolingo, Mimo, Khan Academy, Brilliant. Para cada um, responder as mesmas cinco perguntas: como estrutura a progressão, como trata o erro, o que faz o usuário voltar, o que cobra, o que não faz.
+- [X] **S1 · Analisar os concorrentes com método** — Duolingo, Mimo, Khan Academy, Brilliant. Para cada um, responder as mesmas cinco perguntas: como estrutura a progressão, como trata o erro, o que faz o usuário voltar, o que cobra, o que não faz.
 - [ ] **S1 · Definir o público-alvo em uma frase** — Vestibulando? Universitário? Autodidata adulto? Muda tudo: linguagem, tamanho do nível, assunto da trilha. **DECISÃO** que trava com o orientador.
 - [ ] **S2 · DECISÃO: escolher a matéria da trilha única** — Precisa ter fonte confiável farta e ordem natural de dificuldade. **Recomendação:** algo com progressão inequívoca (lógica de programação, fundamentos de estatística, gramática). Evitar assunto polêmico ou de fonte escassa.
 - [ ] **S2 · Montar a whitelist de fontes** — Lista fechada e escrita de domínios permitidos. Cada um com uma linha justificando por que é confiável. Sem essa lista, "fontes confiáveis" é só uma promessa no resumo do TCC.
