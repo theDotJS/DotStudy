@@ -232,7 +232,7 @@ attempts         id, user_id, question_id, alternative_id, correta, criado_em
 
 #### Regra de Negócios — Gabriel, Pedro
 
-- [X] **S1 · Escrever as regras em português antes de virar código** — Um documento curto, frases afirmativas. Exemplo de partida:
+- [ ] **S1 · Escrever as regras em português antes de virar código** — Um documento curto, frases afirmativas. Exemplo de partida:
   - O nível 1 de uma trilha começa sempre disponível.
   - Um nível fica disponível quando o nível de ordem imediatamente anterior está concluído.
   - Um nível é concluído com 70% ou mais de acerto.
