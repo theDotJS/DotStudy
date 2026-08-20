@@ -344,7 +344,7 @@ attempts         id, user_id, question_id, alternative_id, correta, criado_em
 
 #### Betatesting e Pesquisa de Bugs — Caio, Adriana
 
-- [X] **S0 · Escolher onde os bugs vivem** — GitHub Issues, Trello ou Jira. Um lugar só. Bug relatado em conversa de WhatsApp se perde.
+- [ ] **S0 · Escolher onde os bugs vivem** — GitHub Issues, Trello ou Jira. Um lugar só. Bug relatado em conversa de WhatsApp se perde.
 - [ ] **S0 · Criar o modelo de relato de bug** — Campos obrigatórios: o que eu fiz, o que eu esperava, o que aconteceu, navegador/aparelho, print. **RISCO:** "não funciona" gasta mais tempo do dev do que o bug em si.
 - [ ] **S1 · Definir a escala de severidade** — Crítico (trava o uso), Alto (feature quebrada com desvio possível), Médio (comportamento errado sem travar), Baixo (visual). Só Crítico e Alto param a sprint.
 - [ ] **S3 · Escrever os roteiros de teste** — Passo a passo do que testar em cada tela, com resultado esperado. Escrever **antes** da tela existir, a partir dos desenhos da Lana.
@@ -357,7 +357,7 @@ attempts         id, user_id, question_id, alternative_id, correta, criado_em
 
 #### Pesquisa de Negócios — Gabrielly
 
-- [X] **S1 · Analisar os concorrentes com método** — Duolingo, Mimo, Khan Academy, Brilliant. Para cada um, responder as mesmas cinco perguntas: como estrutura a progressão, como trata o erro, o que faz o usuário voltar, o que cobra, o que não faz.
+- [ ] **S1 · Analisar os concorrentes com método** — Duolingo, Mimo, Khan Academy, Brilliant. Para cada um, responder as mesmas cinco perguntas: como estrutura a progressão, como trata o erro, o que faz o usuário voltar, o que cobra, o que não faz.
 - [ ] **S1 · Definir o público-alvo em uma frase** — Vestibulando? Universitário? Autodidata adulto? Muda tudo: linguagem, tamanho do nível, assunto da trilha. **DECISÃO** que trava com o orientador.
 - [ ] **S2 · DECISÃO: escolher a matéria da trilha única** — Precisa ter fonte confiável farta e ordem natural de dificuldade. **Recomendação:** algo com progressão inequívoca (lógica de programação, fundamentos de estatística, gramática). Evitar assunto polêmico ou de fonte escassa.
 - [ ] **S2 · Montar a whitelist de fontes** — Lista fechada e escrita de domínios permitidos. Cada um com uma linha justificando por que é confiável. Sem essa lista, "fontes confiáveis" é só uma promessa no resumo do TCC.
