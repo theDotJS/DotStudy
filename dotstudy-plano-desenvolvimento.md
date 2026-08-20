@@ -61,13 +61,7 @@ As duas imagens conceituais são estilos diferentes e incompatíveis. Precisa es
 **Recomendação:** pixel art. O motivo não é gosto, é ritmo de produção — vocês vão precisar de dezenas de ícones, estados de nível (bloqueado, disponível, concluído) e variações, e pixel art é o único dos dois que uma equipe iniciante consegue manter consistente em 12 semanas.
 **Quem decide:** Lana e Alexandre, com aval do orientador.
 
-### D2 — Onde o site vive
-
-A imagem 2 mostra `file:///D:/login/menu/menu.html`. Isso significa que hoje o projeto é HTML solto na máquina de alguém. Isso não sobrevive a 11 pessoas trabalhando junto.
-
-**Obrigatório na S0:** repositório no GitHub, todo mundo com acesso, todo mundo sabendo dar `commit` e `push`. Sem isso, o resto do plano não roda.
-
-### D3 — App nativo ou web responsiva?
+### D2 — App nativo ou web responsiva?
 
 Três cargos hoje apontam para app nativo (Layout Mobile, Rotas do Backend, Multiplataformicidade).
 
@@ -87,7 +81,7 @@ Três cargos hoje apontam para app nativo (Layout Mobile, Rotas do Backend, Mult
 
 **Quem decide:** você, com o orientador. Se o TCC exige app nativo por escrito, avise imediatamente — o escopo da feature única precisa encolher ainda mais.
 
-### D4 — Pedro está em 4 cargos
+### D3 — Pedro está em 4 cargos
 
 Pedro aparece em API, Regra de Negócios, Rotas do Backend e Auxiliador Geral. É o gargalo estrutural do projeto: se ele atrasa, tudo atrasa.
 
