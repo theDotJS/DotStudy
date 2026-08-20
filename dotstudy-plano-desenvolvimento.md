@@ -81,12 +81,6 @@ Três cargos hoje apontam para app nativo (Layout Mobile, Rotas do Backend, Mult
 
 **Quem decide:** você, com o orientador. Se o TCC exige app nativo por escrito, avise imediatamente — o escopo da feature única precisa encolher ainda mais.
 
-### D3 — Pedro está em 4 cargos
-
-Pedro aparece em API, Regra de Negócios, Rotas do Backend e Auxiliador Geral. É o gargalo estrutural do projeto: se ele atrasa, tudo atrasa.
-
-**Recomendação:** Pedro sai de "Auxiliador Geral" (fica só Fabiano) e Gabriel assume a maior parte das regras de negócio. Pedro concentra em API + contrato de rotas.
-
 ---
 
 ## 4. Stack recomendada
