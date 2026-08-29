@@ -9,7 +9,7 @@
 - [ ] **S0 · Montar o ambiente** — Node, editor, Git funcionando. Conseguir clonar o repositório e rodar o projeto.
 - [ ] **S1 · Subir o Next.js e criar as rotas vazias** — `/login`, `/cadastro`, `/mapa`, `/nivel/[id]`. Páginas em branco com o nome escrito. Prova que a navegação funciona.
 - [ ] **S2 · Traduzir o sistema de design para o Tailwind** — Cores e fontes da Lana configuradas no `tailwind.config`. A partir daqui, ninguém escreve código de cor solta.
-- [x] **S2 · Construir os componentes de base** — Botão, campo de texto, card, mensagem de erro. Um lugar só para cada, reutilizados em todas as telas.
+- [X] **S2 · Construir os componentes de base** — Botão, campo de texto, card, mensagem de erro. Um lugar só para cada, reutilizados em todas as telas.
 - [ ] **S3 · Telas de Login e Cadastro** — Com validação visual: campo vazio, e-mail inválido, senha curta, erro do servidor.
 - [ ] **S3 · Ligar o login à API** — Enviar credenciais, guardar o token, redirecionar. Em par com o Pedro.
 - [ ] **S4 · Proteção de rota no frontend** — Quem não está logado e tenta abrir `/mapa` volta para `/login`.
