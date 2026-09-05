@@ -6,9 +6,9 @@
 
 ---
 
-- [ ] **S0 · Escolher onde os bugs vivem** — GitHub Issues, Trello ou Jira. Um lugar só. Bug relatado em conversa de WhatsApp se perde.
-- [ ] **S0 · Criar o modelo de relato de bug** — Campos obrigatórios: o que eu fiz, o que eu esperava, o que aconteceu, navegador/aparelho, print. **RISCO:** "não funciona" gasta mais tempo do dev do que o bug em si.
-- [ ] **S1 · Definir a escala de severidade** — Crítico (trava o uso), Alto (feature quebrada com desvio possível), Médio (comportamento errado sem travar), Baixo (visual). Só Crítico e Alto param a sprint.
+- [X] **S0 · Escolher onde os bugs vivem** — GitHub Issues, Trello ou Jira. Um lugar só. Bug relatado em conversa de WhatsApp se perde.
+- [X] **S0 · Criar o modelo de relato de bug** — Campos obrigatórios: o que eu fiz, o que eu esperava, o que aconteceu, navegador/aparelho, print. **RISCO:** "não funciona" gasta mais tempo do dev do que o bug em si.
+- [X] **S1 · Definir a escala de severidade** — Crítico (trava o uso), Alto (feature quebrada com desvio possível), Médio (comportamento errado sem travar), Baixo (visual). Só Crítico e Alto param a sprint.
 - [ ] **S3 · Escrever os roteiros de teste** — Passo a passo do que testar em cada tela, com resultado esperado. Escrever **antes** da tela existir, a partir dos desenhos da Lana.
 - [ ] **S4 · Começar o teste exploratório da autenticação** — Cadastrar com e-mail repetido, senha vazia, e-mail sem `@`, senha de 1 caractere, campos com espaço. Quebrar de propósito é o trabalho.
 - [ ] **S6 · Testar o fluxo completo do nível** — Responder tudo certo, tudo errado, metade, sair no meio, voltar, recarregar a página no meio do exercício.
