@@ -1,0 +1,23 @@
+{
+  "name": "dotstudy",
+  "private": true,
+  "version": "0.1.0",
+  "description": "DotStudy - plataforma de estudos com progressao por niveis. TCC.",
+  "scripts": {
+    "setup": "npm --prefix apps/web install && npm --prefix apps/api install",
+    "db:up": "docker compose up -d",
+    "db:down": "docker compose down",
+    "dev:web": "npm --prefix apps/web run dev",
+    "dev:api": "npm --prefix apps/api run start:dev",
+    "build": "npm --prefix apps/web run build && npm --prefix apps/api run build",
+    "lint": "npm --prefix apps/web run lint && npm --prefix apps/api run lint",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "devDependencies": {
+    "prettier": "^3.3.3"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

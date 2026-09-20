@@ -1,89 +1,119 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+/* =============================================================
+   DotStudy - prototipo. Somente a tela de Perfil.
+   Carregar DEPOIS de main.css. Nao redefine body: main.css cuida disso.
 
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-
-body {
-    display: flex;
-    justify-content: center;
-    min-height: 100vh;
-    align-items: center;    
-    background: url(https://vip-go.shutterstock.com/blog/wp-content/uploads/sites/5/2020/05/shutterstock_407554567.jpg?w=750);
-}
+   O fundo anterior era uma imagem da Shutterstock, hotlinkada do dominio
+   deles e com marca d'agua. Conteudo licenciado nao entra em TCC. Removido.
+   ============================================================= */
 
 .container {
-    border-radius: 40px;
-    background-color: transparent;
-    width: 600px;
-    border: 4px solid rgb(155, 155, 155);
-    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
-    color: white;
-    padding: 30px 40px 20px 40px;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 30px 40px 20px;
+  border: 4px solid rgb(155, 155, 155);
+  border-radius: 40px;
+  background-color: rgba(0, 0, 0, 0.35);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  color: var(--cor-texto);
 }
 
-.container h1  {
-    font-size: 50px;
-    text-align: center;
+.container h1 {
+  font-size: 50px;
+  text-align: center;
+  margin: 0 0 var(--espaco-3);
 }
 
 .foto {
-    display: flex;
-    justify-content: center;
-    margin: 10px 0 15px;
+  display: flex;
+  justify-content: center;
+  margin: 10px 0 15px;
 }
+
 .foto img {
-    width: 250px;
-    height: 250px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 4px solid white;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #fff;
+  background-color: var(--cor-superficie-hover);
 }
+
 .input-box {
-    position: relative;
-    width: 100%;
-    height: 50px;
-    margin: 30px 0px;
-    color: white;
+  margin: var(--espaco-4) 0;
 }
+
+.input-box label {
+  display: block;
+  margin-bottom: var(--espaco-1);
+  font-size: 14px;
+}
+
 .input-box input {
-  border: none;
-  outline: none;
-  border-bottom: 2px solid hsl(0, 0%, 100%);
-  padding: 8px 0; 
-  background-color: transparent;
   width: 100%;
-  height: 100%;
-  padding: 20px 45px 20px 20px;
-  color: white;
+  height: 50px;
+  padding: 0 var(--espaco-3);
+  border: none;
+  border-bottom: 2px solid #fff;
+  background-color: transparent;
+  color: var(--cor-texto);
+  font-size: 16px;
 }
 
-.salvar button {
-    border-radius: 10px;
-    width: 75px;
-    height: 40px;
-    background-color: rgb(85, 85, 250);
-    float: right;
-    border: none;
-    color: white;
-    font-weight: bold;
-    font-size: medium;
-    cursor: pointer;
+.input-box input::placeholder {
+  /* Contraste do placeholder tambem conta. */
+  color: #b9bec9;
 }
 
-.reset button {
-    border: none;
-    background-color: transparent;
-    font-weight: bold;
-    color: white;
-    cursor: pointer;
-    font-size: medium;
-    
+.acoes {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: var(--espaco-3);
+  padding-bottom: var(--espaco-3);
 }
-.reset button a:hover {
-    text-decoration: underline;
+
+.botao-primario {
+  min-width: 90px;
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+  background-color: var(--cor-acento);
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.botao-secundario {
+  border: none;
+  background-color: transparent;
+  color: var(--cor-texto);
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.aviso-prototipo {
+  margin: 0 0 var(--espaco-3);
+  font-size: 13px;
+  color: #b9bec9;
+  text-align: right;
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: var(--espaco-4) var(--espaco-3);
+    border-radius: 24px;
+  }
+
+  .container h1 {
+    font-size: 34px;
+  }
+
+  .foto img {
+    width: 160px;
+    height: 160px;
+  }
 }

@@ -1,64 +1,69 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="./main.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DotStudy — Menu Principal (protótipo)</title>
 
-    <style>
-        div {
-            width: 35px;
-            height: 5px;
-            background-color: black;
-            margin: 6px 0;
-        }
-    </style>
-</head>
-<body>
-    <button class="botao-menu">
-        <i class="fa-solid fa-bars"></i>
+    <!-- Font Awesome local. Nao usar CDN: precisa funcionar sem internet. -->
+    <link rel="stylesheet" href="./vendor/fontawesome/css/fontawesome.min.css" />
+    <link rel="stylesheet" href="./vendor/fontawesome/css/solid.min.css" />
+
+    <link rel="stylesheet" href="./main.css" />
+  </head>
+  <body>
+    <button
+      class="botao-menu"
+      type="button"
+      aria-label="Abrir menu"
+      aria-expanded="false"
+      aria-controls="menu-lateral"
+    >
+      <i class="fa-solid fa-bars" aria-hidden="true"></i>
     </button>
-   
-    <nav class="menu-lateral">
-        <ul>
-            <li>
-                <a href="#">
-                <i class="fa-solid fa-house"></i>
-                Home
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fa-solid fa-circle-info"></i>
-                Sobre
-                    </a>
-                </li>
-            <li>
-                <a href="#">
-                <i class="fa-solid fa-gears"></i>
+
+    <nav class="menu-lateral" id="menu-lateral" aria-label="Menu principal">
+      <ul>
+        <li>
+          <a href="./main.html">
+            <i class="fa-solid fa-house" aria-hidden="true"></i>
+            Home
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+            Sobre
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fa-solid fa-gears" aria-hidden="true"></i>
             Configurações
-                </a>
-            </li>
-            <li>
-                <a href="./perfil.html">
-                    <i class="fa-solid fa-circle-user"></i>
-                Perfil
-                </a>
-                </li>
-                <li>
-                    <div class="trilho">
-                        <div class="indicador"></div>
-                    </div>
-                </li>
-        </ul>
+          </a>
+        </li>
+        <li>
+          <a href="./perfil.html">
+            <i class="fa-solid fa-circle-user" aria-hidden="true"></i>
+            Perfil
+          </a>
+        </li>
+        <li>
+          <!-- PENDENTE: funcao deste controle nao foi definida. Ver LEIA-ME.md, item 4. -->
+          <div class="trilho">
+            <div class="indicador"></div>
+          </div>
+        </li>
+      </ul>
     </nav>
-    
+
     <div class="background"></div>
 
     <main class="conteudo">
-        <h1>Menu Principal</h1>
-        <p>Teste menu Principal</p>
+      <h1>Menu Principal</h1>
+      <p>Teste menu Principal</p>
     </main>
-</body>
+
+    <script src="./prototipo.js"></script>
+  </body>
 </html>
