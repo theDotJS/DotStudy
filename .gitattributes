@@ -1,0 +1,15 @@
+# Normaliza fim de linha. Sem isto, o Windows grava CRLF, o Git converte,
+# e um arquivo que ninguem tocou aparece inteiro alterado no diff.
+# Esse e o "conflito de Git" listado como risco no plano de desenvolvimento.
+* text=auto eol=lf
+
+# Binarios nao entram na conversao.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.pdf binary

@@ -16,17 +16,17 @@
 
 ## Calendário de Responsabilidades
 
-| Semana | Datas | Marco |
-|---|---|---|
-| S0 | 24–30/08 | Setup: repositório, ambientes, decisões D1–D4 |
-| S1 | 31/08–06/09 | Modelagem e protótipo |
-| S2 | 07–13/09 | Fundação: banco no ar, primeira tela |
-| S3 | 14–20/09 | Autenticação funcionando ponta a ponta |
-| S4 | 21–27/09 | Conteúdo gerado e aprovado |
-| S5 | 28/09–04/10 | Mapa de níveis navegável |
-| S6 | 05–11/10 | Exercícios e correção |
-| S7 | 12–18/10 | Progressão e desbloqueio (**MVP fecha aqui**) |
-| S8 | 19–25/10 | Responsivo, PWA, deploy público |
-| S9 | 26/10–01/11 | Betateste com usuários reais. **Freeze em 01/11** |
-| S10 | 02–08/11 | Correção de bugs e escrita da monografia |
-| — | 09–15/11 | Entrega e ensaio de apresentação |
+| Semana | Datas       | Marco                                             |
+| ------ | ----------- | ------------------------------------------------- |
+| S0     | 24–30/08    | Setup: repositório, ambientes, decisões D1–D4     |
+| S1     | 31/08–06/09 | Modelagem e protótipo                             |
+| S2     | 07–13/09    | Fundação: banco no ar, primeira tela              |
+| S3     | 14–20/09    | Autenticação funcionando ponta a ponta            |
+| S4     | 21–27/09    | Conteúdo gerado e aprovado                        |
+| S5     | 28/09–04/10 | Mapa de níveis navegável                          |
+| S6     | 05–11/10    | Exercícios e correção                             |
+| S7     | 12–18/10    | Progressão e desbloqueio (**MVP fecha aqui**)     |
+| S8     | 19–25/10    | Responsivo, PWA, deploy público                   |
+| S9     | 26/10–01/11 | Betateste com usuários reais. **Freeze em 01/11** |
+| S10    | 02–08/11    | Correção de bugs e escrita da monografia          |
+| —      | 09–15/11    | Entrega e ensaio de apresentação                  |

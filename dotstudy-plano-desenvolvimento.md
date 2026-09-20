@@ -31,15 +31,15 @@ Uma trilha. Um assunto. Entre 8 e 12 níveis. É isso.
 
 ### O que fica de fora (e volta como "trabalhos futuros" no TCC)
 
-| Fora do MVP | Por quê |
-|---|---|
-| DotChat (chat com IA) | É uma segunda feature inteira. Vira demo estática, se der tempo. |
-| Múltiplas trilhas/matérias | Uma trilha prova o mecanismo. Dez trilhas só multiplicam o trabalho de curadoria. |
-| App mobile nativo | Ver decisão D3. |
-| Ranking, ligas, amigos | Social é a parte mais cara de fazer e a menos essencial para defender a tese. |
-| Notificações push / e-mail | Depende de infra externa e domínio verificado. |
-| Painel administrativo | O conteúdo entra por script de seed no banco. |
-| Recuperação de senha por e-mail | Exige serviço de e-mail configurado. Redefinição manual no MVP. |
+| Fora do MVP                     | Por quê                                                                           |
+| ------------------------------- | --------------------------------------------------------------------------------- |
+| DotChat (chat com IA)           | É uma segunda feature inteira. Vira demo estática, se der tempo.                  |
+| Múltiplas trilhas/matérias      | Uma trilha prova o mecanismo. Dez trilhas só multiplicam o trabalho de curadoria. |
+| App mobile nativo               | Ver decisão D3.                                                                   |
+| Ranking, ligas, amigos          | Social é a parte mais cara de fazer e a menos essencial para defender a tese.     |
+| Notificações push / e-mail      | Depende de infra externa e domínio verificado.                                    |
+| Painel administrativo           | O conteúdo entra por script de seed no banco.                                     |
+| Recuperação de senha por e-mail | Exige serviço de e-mail configurado. Redefinição manual no MVP.                   |
 
 **RISCO principal do projeto:** não é técnico, é de escopo. 11 pessoas iniciantes tendem a produzir 11 features começadas e zero terminadas. A regra que protege vocês: nada entra na lista acima antes de 01/11.
 
@@ -51,12 +51,12 @@ Uma trilha. Um assunto. Entre 8 e 12 níveis. É isso.
 
 As duas imagens conceituais são estilos diferentes e incompatíveis. Precisa escolher um.
 
-| | Ilustração pintada (imagem 1) | Pixel art (imagem 2) |
-|---|---|---|
-| Custo de produção | Alto: cada novo asset é uma ilustração nova | Baixo: assets pequenos, reutilizáveis, editáveis em qualquer editor |
-| Consistência com iniciantes | Difícil: qualquer asset novo destoa | Fácil: a grade de pixels perdoa erro de traço |
-| Peso do arquivo | Imagens grandes, prejudica carregamento | Leve |
-| Adaptação a tela pequena | Perde detalhe, precisa de arte separada | Escala bem em múltiplos inteiros |
+|                             | Ilustração pintada (imagem 1)               | Pixel art (imagem 2)                                                |
+| --------------------------- | ------------------------------------------- | ------------------------------------------------------------------- |
+| Custo de produção           | Alto: cada novo asset é uma ilustração nova | Baixo: assets pequenos, reutilizáveis, editáveis em qualquer editor |
+| Consistência com iniciantes | Difícil: qualquer asset novo destoa         | Fácil: a grade de pixels perdoa erro de traço                       |
+| Peso do arquivo             | Imagens grandes, prejudica carregamento     | Leve                                                                |
+| Adaptação a tela pequena    | Perde detalhe, precisa de arte separada     | Escala bem em múltiplos inteiros                                    |
 
 **Recomendação:** pixel art. O motivo não é gosto, é ritmo de produção — vocês vão precisar de dezenas de ícones, estados de nível (bloqueado, disponível, concluído) e variações, e pixel art é o único dos dois que uma equipe iniciante consegue manter consistente em 12 semanas.
 **Quem decide:** Lana e Alexandre, com aval do orientador.
@@ -65,13 +65,13 @@ As duas imagens conceituais são estilos diferentes e incompatíveis. Precisa es
 
 Três cargos hoje apontam para app nativo (Layout Mobile, Rotas do Backend, Multiplataformicidade).
 
-| | App nativo (React Native) | Web responsiva + PWA |
-|---|---|---|
-| Codebase | Dois projetos para manter | Um |
-| Curva de aprendizado | Ambiente de build, emulador, assinatura de app | Nenhuma além do que já vão aprender |
-| Instalável no celular | Sim | Sim (PWA: "adicionar à tela inicial") |
-| Custo em semanas | 4 a 5 semanas de equipe | ~1 semana |
-| Publicação em loja | Conta de desenvolvedor paga, revisão de dias | Não se aplica |
+|                       | App nativo (React Native)                      | Web responsiva + PWA                  |
+| --------------------- | ---------------------------------------------- | ------------------------------------- |
+| Codebase              | Dois projetos para manter                      | Um                                    |
+| Curva de aprendizado  | Ambiente de build, emulador, assinatura de app | Nenhuma além do que já vão aprender   |
+| Instalável no celular | Sim                                            | Sim (PWA: "adicionar à tela inicial") |
+| Custo em semanas      | 4 a 5 semanas de equipe                        | ~1 semana                             |
+| Publicação em loja    | Conta de desenvolvedor paga, revisão de dias   | Não se aplica                         |
 
 **Recomendação:** web responsiva com PWA. Vocês entregam algo que abre no celular, instala na tela inicial e funciona, sem manter dois códigos. Os três cargos continuam existindo, com conteúdo redefinido (ver seções 6.3):
 
@@ -87,19 +87,19 @@ Três cargos hoje apontam para app nativo (Layout Mobile, Rotas do Backend, Mult
 
 Escolhida por um critério só: menor quantidade de coisas novas para aprender.
 
-| Camada | Escolha | Motivo |
-|---|---|---|
-| Frontend | **Next.js (React) + TypeScript** | Rotas prontas, deploy em um clique na Vercel, mesma linguagem do backend |
-| Estilo | **Tailwind CSS** | Não exige arquitetura de CSS, que é onde time iniciante se perde |
-| Backend | **NestJS + TypeScript** | Estrutura opinativa: o iniciante tem menos decisões livres para errar |
-| ORM | **Prisma** | Schema declarativo, migrations automáticas, tipagem gerada |
-| Banco | **PostgreSQL** (Supabase ou Neon, plano gratuito) | Relacional, gratuito, sem precisar administrar servidor |
-| Autenticação | **Biblioteca pronta** (Auth.js ou Supabase Auth) | Ver aviso abaixo |
-| Deploy | Vercel (front) + Railway/Render (API) | Planos gratuitos suficientes para TCC |
+| Camada       | Escolha                                           | Motivo                                                                   |
+| ------------ | ------------------------------------------------- | ------------------------------------------------------------------------ |
+| Frontend     | **Next.js (React) + TypeScript**                  | Rotas prontas, deploy em um clique na Vercel, mesma linguagem do backend |
+| Estilo       | **Tailwind CSS**                                  | Não exige arquitetura de CSS, que é onde time iniciante se perde         |
+| Backend      | **NestJS + TypeScript**                           | Estrutura opinativa: o iniciante tem menos decisões livres para errar    |
+| ORM          | **Prisma**                                        | Schema declarativo, migrations automáticas, tipagem gerada               |
+| Banco        | **PostgreSQL** (Supabase ou Neon, plano gratuito) | Relacional, gratuito, sem precisar administrar servidor                  |
+| Autenticação | **Biblioteca pronta** (Auth.js ou Supabase Auth)  | Ver aviso abaixo                                                         |
+| Deploy       | Vercel (front) + Railway/Render (API)             | Planos gratuitos suficientes para TCC                                    |
 
 **Alternativa mais enxuta:** se o time achar Next.js + NestJS pesado demais, dá para fazer tudo em Next.js (front e API na mesma aplicação). Menos código, menos deploy, menos conceito novo. A troca é que fica menos parecido com arquitetura de mercado, o que pode pesar na banca.
 
-**RISCO — autenticação:** não escrevam login do zero. Hash de senha, sessão, token, expiração e proteção contra ataque de força bruta são um conjunto de detalhes onde erro de iniciante vira falha real. Use biblioteca. Gabriel documenta *como* a biblioteca resolve cada um desses pontos — isso rende um capítulo bom do TCC e vale mais que uma implementação caseira frágil.
+**RISCO — autenticação:** não escrevam login do zero. Hash de senha, sessão, token, expiração e proteção contra ataque de força bruta são um conjunto de detalhes onde erro de iniciante vira falha real. Use biblioteca. Gabriel documenta _como_ a biblioteca resolve cada um desses pontos — isso rende um capítulo bom do TCC e vale mais que uma implementação caseira frágil.
 
 ---
 
@@ -158,16 +158,16 @@ Se quiser um componente autoral de IA sem sair do prazo, há uma opção barata:
 
 ## 7. Riscos, em ordem de probabilidade
 
-| Risco | Como se manifesta | Contramedida |
-|---|---|---|
-| Escopo inflado | Aparecem DotChat, ranking e biblioteca; nada fecha | Feature única declarada, freeze em 01/11 |
-| Pedro vira gargalo | 4 cargos numa pessoa; ela atrasa e tudo para | Decisão D4: redistribuir |
-| Ninguém integra | Front e back prontos, sem conversar | Contrato de API na S1; integração parcial toda semana |
-| Conteúdo atrasa | Site pronto, sem nada para estudar | Conteúdo aprovado até a S4, antes do site precisar dele |
-| Conflito de Git | Trabalho perdido, moral abalada | Guia de Git na S1; branches curtas; revisão obrigatória |
-| Chave vazada no repositório | Segredo exposto publicamente | Varredura na S0; `.env` no `.gitignore` desde o primeiro commit |
-| IA gera erro que ninguém pega | Conteúdo incorreto no ar, banca detecta | Validação humana obrigatória; taxa de rejeição documentada |
-| Só testam no fim | Bugs críticos descobertos na última semana | Teste exploratório começa na S4 |
+| Risco                         | Como se manifesta                                  | Contramedida                                                    |
+| ----------------------------- | -------------------------------------------------- | --------------------------------------------------------------- |
+| Escopo inflado                | Aparecem DotChat, ranking e biblioteca; nada fecha | Feature única declarada, freeze em 01/11                        |
+| Pedro vira gargalo            | 4 cargos numa pessoa; ela atrasa e tudo para       | Decisão D4: redistribuir                                        |
+| Ninguém integra               | Front e back prontos, sem conversar                | Contrato de API na S1; integração parcial toda semana           |
+| Conteúdo atrasa               | Site pronto, sem nada para estudar                 | Conteúdo aprovado até a S4, antes do site precisar dele         |
+| Conflito de Git               | Trabalho perdido, moral abalada                    | Guia de Git na S1; branches curtas; revisão obrigatória         |
+| Chave vazada no repositório   | Segredo exposto publicamente                       | Varredura na S0; `.env` no `.gitignore` desde o primeiro commit |
+| IA gera erro que ninguém pega | Conteúdo incorreto no ar, banca detecta            | Validação humana obrigatória; taxa de rejeição documentada      |
+| Só testam no fim              | Bugs críticos descobertos na última semana         | Teste exploratório começa na S4                                 |
 
 ---
 
