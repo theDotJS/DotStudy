@@ -1,74 +1,56 @@
 # Protótipos em HTML
 
-**O que é esta pasta:** as telas em HTML e CSS puro que o frontend produziu antes da estrutura do
-projeto existir. **Continuam em uso** até o HTML final ser produzido. Não é código descartado.
+**O que é esta pasta:** as telas em HTML, CSS e JS puro do rascunho de design. **Continuam em uso**
+até o HTML final ser produzido. Não é código descartado.
+
+**Origem:** repositório <https://github.com/aleeh1x/DotStudy-html-css-js>, commit `256ab09`
+(09/10/2026). Os arquivos foram copiados **como estão**: mesma marcação, mesmo CSS, mesmo JS.
 
 **Como abrir:**
 
-- Com o Next rodando (`npm run dev` em `apps/web`): <http://localhost:3000/prototipos/main.html>
-- Ou abrindo o arquivo direto no navegador. Todos os caminhos são relativos e não há dependência
-  de internet, então funciona pelos dois jeitos.
+- Com o Next rodando (`npm run dev` em `apps/web`): <http://localhost:3000/prototipos/login/login.html>
+- Ou abrindo o arquivo direto no navegador. Fontes e ícones vêm de CDN, então precisa de internet.
 
 ---
 
-## 1. O que veio de fora
+## 1. As telas
 
-| Arquivo                     | Autoria original           |
-| --------------------------- | -------------------------- |
-| `main.html`, `main.css`     | frontend, commit `ad9c55f` |
-| `perfil.html`, `perfil.css` | frontend, commit `ad9c55f` |
+| Tela       | Arquivo                       | Origem no repo do rascunho              |
+| ---------- | ----------------------------- | --------------------------------------- |
+| Login      | `login/login.html`            | `login.html` + `style.css`              |
+| Home       | `menu/menu.html`              | `menu.html` + `main.css` + `menu.js`    |
+| Perfil     | `perfil/perfil.html`          | `perfil.html` + `perfil.css` + `perfil.js` |
+| DotChat    | `chat/chat.html`              | `chat.html` + `chat.css` + `chat.js`    |
+| Biblioteca | `library/library.html`        | `library.html` + `library.css` + `library.js` |
 
-`prototipo.js` é novo. O CSS já tinha as classes `.ativo` escritas, mas não existia nenhum arquivo
-`.js` no repositório: o menu nunca abria. O comportamento que faltava mora nesse arquivo.
+Uma pasta por tela porque os links entre as páginas do rascunho já apontam para
+`../menu/menu.html`, `../perfil/perfil.html` etc. Com essa estrutura, nenhum link precisou ser editado.
 
-## 2. O que foi corrigido, e por quê
+Estas telas substituem o `main.html` e o `perfil.html` anteriores (e o `prototipo.js` e o
+Font Awesome baixado que só eles usavam). A versão anterior continua no histórico do Git.
 
-| #   | Era                                                                                     | Virou                                                                                                                                                                                      |
-| --- | --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 1   | `<style>` no `main.html` com seletor `div { width:35px; height:5px; background:black }` | Regra escopada para `.trilho` e `.indicador` no `main.css`. O seletor solto atingia **toda** `div` da página: `.background` virava uma faixa preta de 35px, `.foto` e `.input-box` também. |
-| 2   | `main.css` apontando para `./media/background1.png`, que não existe                     | Gradiente escuro provisório, com o caminho real comentado logo acima                                                                                                                       |
-| 3   | Menu lateral sem nenhum JS                                                              | `prototipo.js`, com abrir, fechar, `Esc` e `aria-expanded`                                                                                                                                 |
-| 4   | `perfil.html` linkando `./menu.html`                                                    | `./main.html`, que é o nome real do arquivo                                                                                                                                                |
-| 5   | `perfil.html` carregando `perfil.css` **e** `main.css`, os dois redefinindo `body`      | `main.css` primeiro (base e menu), `perfil.css` depois e sem tocar em `body`                                                                                                               |
-| 6   | `.conteudo` com texto `#ecf0f1` sobre `body` `#ecf0f1`, e `.background` no fluxo normal | `.background` virou `position: fixed` atrás de tudo, com fundo escuro. O texto claro era literalmente invisível.                                                                           |
-| 7   | Fundo do perfil hotlinkado da Shutterstock, com marca d'água                            | Removido. Conteúdo licenciado de terceiro não entra em TCC.                                                                                                                                |
-| 8   | Campos sem `<label>`, sem `name`, sem `id`                                              | Todos rotulados e nomeados. `placeholder` não é rótulo: some ao digitar.                                                                                                                   |
-| 9   | Botão do menu só com ícone                                                              | `aria-label` e `aria-expanded`                                                                                                                                                             |
-| 10  | "Redefinir" era `type="submit"` envolvendo um `<a>` sem `href`                          | `<button type="reset">`                                                                                                                                                                    |
-| 11  | `oninput="..."` dentro do HTML                                                          | Atributo `data-somente-digitos` tratado no `prototipo.js`                                                                                                                                  |
-| 12  | `padding` declarado duas vezes em `.input-box input`                                    | Uma vez                                                                                                                                                                                    |
-| 13  | `@import` da fonte Bebas Neue, nunca usada                                              | Removido                                                                                                                                                                                   |
-| 14  | `main.html` sem `<title>`                                                               | Com título                                                                                                                                                                                 |
-| 15  | Font Awesome via CDN                                                                    | Baixado em `vendor/fontawesome/` (204 KB). Funciona offline e não quebra se o CDN sair do ar.                                                                                              |
+## 2. O que mudou em relação ao original, e por quê
 
-## 3. O que **não** foi mexido, de propósito
+| #   | Era                                                     | Virou                                    | Motivo                                                                 |
+| --- | ------------------------------------------------------- | ---------------------------------------- | ---------------------------------------------------------------------- |
+| 1   | `style.css`, mas o `login.html` linka `styles.css`      | Arquivo salvo como `login/styles.css`    | Do jeito original o login abria sem estilo nenhum. O HTML ficou intacto. |
+| 2   | Primeira mensagem do bot no `chat.html` com palavrão    | "Meow! Como posso ajudar?"               | Texto impróprio para trabalho acadêmico.                               |
 
-- **A estrutura das telas.** Layout, hierarquia e posição de elemento continuam como o frontend fez.
-- **As cores.** Estão como variáveis CSS no `:root` do `main.css`, mas os valores são provisórios.
-  O sistema de design (paleta, tipografia, escala) é a tarefa S2 da Lana. Enquanto ele não existir,
-  qualquer cor escolhida aqui é chute, e a checklist do Alexandre é explícita: ninguém escreve cor
-  solta. Quando a paleta chegar, muda em um lugar só.
-- **A `<nav>` duplicada** nos dois arquivos. Sem gerador de template, a alternativa seria injetar o
-  menu por JS, o que deixaria o HTML menos parecido com o HTML final. **Regra enquanto isso:
-  mexeu na nav, mexe nos dois arquivos.**
+Nada além disso foi alterado.
 
-## 4. Pendências conhecidas
+## 3. Pendências conhecidas
 
-| #   | Pendência                                                                                                                      | Quem                 |
-| --- | ------------------------------------------------------------------------------------------------------------------------------ | -------------------- |
-| P1  | `.trilho` / `.indicador`: a função desse controle nunca foi definida. Parece um interruptor. Decidir o que é ou remover.       | Alexandre            |
-| P2  | `background1.png` e a foto de perfil real. Ver `media/LEIA-ME.md`.                                                             | Lana                 |
-| P3  | O formulário de perfil não envia nada. Ligar quando a rota existir.                                                            | Alexandre, com Pedro |
-| P4  | Contraste conferido a olho, não medido. Passar no WebAIM Contrast Checker quando a paleta final existir (tarefa S4 de Design). | Lana                 |
+| #   | Pendência                                                                                                                                                                                                 | Quem      |
+| --- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| P1  | **Imagens não existem no repo do rascunho**, nem no histórico: `img.jpg` (fundo do login), `imagem-topo.png`, `userwhite.png`, `catbackground.png`, `gatoboné.jpg`, `DotSTUDY.png`. Hoje aparecem quebradas. | Designer  |
+| P2  | Layout com largura fixa em px (ex.: `.conteudo` com 1375px, `.perfil` com `margin-left: 450px`). Quebra em tela menor que ~1600px e no celular.                                                            | Frontend  |
+| P3  | HTML com tags fora do lugar: `<header>` e `<div class="chat">` antes do `<body>`, `<body>` duplicado no `library.html`, `</button>` solto no login, `<nav>` sem fechar no chat. O navegador corrige sozinho, mas o HTML final não pode sair assim. | Frontend  |
+| P4  | Campos sem `<label>`, botão do menu sem `aria-label`, imagens de conteúdo sem `alt` útil. Ver a checklist de acessibilidade.                                                                              | Frontend  |
+| P5  | Cores escritas soltas em cada CSS (`#B49883`, `lab(...)`, `oklab(...)`), repetidas entre arquivos. Quando o sistema de design existir, viram variáveis no `:root`.                                         | Design    |
+| P6  | Menu lateral, topo e transições copiados em todos os CSS. **Regra enquanto isso: mexeu no menu ou no topo, mexe nos cinco arquivos.**                                                                    | Frontend  |
+| P7  | Os formulários e o chat não falam com a API. O chat responde uma mensagem fixa depois de 700 ms.                                                                                                         | Frontend, com Pedro |
 
-## 5. Escopo: leia antes de fazer mais tela aqui
+## 4. Escopo
 
-Nenhuma destas duas telas está no MVP. A lista do MVP é **Login, Cadastro, Mapa de Níveis, Tela de
-Nível, Exercício e Resultado**. "Perfil" é tarefa S6 da checklist de Design, e "Menu Principal" é
-placeholder.
-
-Isso não é culpa de quem fez: sem contrato de API e sem sistema de design, sobrou construir o que
-dava para construir sozinho. Os dois documentos agora existem
-(`docs/contrato-api.md` e `docs/regras-de-negocio.md`).
-
-**Próxima tela a nascer é Login, não mais uma variação destas.**
+A lista do MVP é **Login, Cadastro, Mapa de Níveis, Tela de Nível, Exercício e Resultado**. Destas
+telas, só o Login está no MVP. Home, Perfil, DotChat e Biblioteca são fora do MVP.

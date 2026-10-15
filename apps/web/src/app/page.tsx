@@ -30,10 +30,19 @@ export default function Home() {
       </p>
       <ul className="mt-2 list-disc pl-6">
         <li>
-          <a href="/prototipos/main.html">Menu Principal</a>
+          <a href="/prototipos/login/login.html">Login</a>
         </li>
         <li>
-          <a href="/prototipos/perfil.html">Perfil</a>
+          <a href="/prototipos/menu/menu.html">Home</a>
+        </li>
+        <li>
+          <a href="/prototipos/perfil/perfil.html">Perfil</a>
+        </li>
+        <li>
+          <a href="/prototipos/chat/chat.html">DotChat</a>
+        </li>
+        <li>
+          <a href="/prototipos/library/library.html">Biblioteca</a>
         </li>
       </ul>
     </main>

@@ -78,12 +78,12 @@ npm run dev:web
 
 ### 6. Conferir que funcionou
 
-| Endereço                                     | O que você deve ver                            |
-| -------------------------------------------- | ---------------------------------------------- |
-| <http://localhost:3333/health>               | `{"status":"ok"}`                              |
-| <http://localhost:3000>                      | Índice de desenvolvimento com a lista de rotas |
-| <http://localhost:3000/login>                | A palavra "Login"                              |
-| <http://localhost:3000/prototipos/main.html> | O protótipo com o menu lateral abrindo         |
+| Endereço                                          | O que você deve ver                            |
+| ------------------------------------------------- | ---------------------------------------------- |
+| <http://localhost:3333/health>                    | `{"status":"ok"}`                              |
+| <http://localhost:3000>                           | Índice de desenvolvimento com a lista de rotas |
+| <http://localhost:3000/login>                     | A palavra "Login"                              |
+| <http://localhost:3000/prototipos/menu/menu.html> | O protótipo com o menu lateral abrindo         |
 
 Se os quatro funcionam, seu ambiente está pronto. Essa é a tarefa `S0 · Montar o ambiente`.
 
