@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa de Níveis</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Saira:wght@400;500;600;700&family=Ultra&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./mapa.css">
+</head>
+<body>
+
+    <header class="topo">
+        <button class="botao-menu" type="button" aria-label="Abrir ou fechar o menu" aria-controls="menu-lateral" aria-expanded="true">
+            <i class="fa-solid fa-bars" aria-hidden="true"></i>
+        </button>
+
+        <div class="logo" aria-label="DotStudy">
+            <span>DOTSTUDY</span>
+            <svg class="gato-espiando" viewBox="0 0 120 56" aria-hidden="true">
+                <path d="M22 44 L18 8 L44 24 Z" fill="#1d1a19"/>
+                <path d="M98 44 L102 8 L76 24 Z" fill="#1d1a19"/>
+                <path d="M24 38 L22 16 L38 27 Z" fill="#5c5654"/>
+                <path d="M96 38 L98 16 L82 27 Z" fill="#5c5654"/>
+                <ellipse cx="60" cy="40" rx="42" ry="24" fill="#1d1a19"/>
+                <ellipse cx="42" cy="38" rx="11" ry="10" fill="#fcc62d"/>
+                <ellipse cx="78" cy="38" rx="11" ry="10" fill="#fcc62d"/>
+                <ellipse cx="44" cy="38" rx="4.5" ry="7" fill="#1d1a19"/>
+                <ellipse cx="80" cy="38" rx="4.5" ry="7" fill="#1d1a19"/>
+                <path d="M57 48 L63 48 L60 51 Z" fill="#5c5654"/>
+            </svg>
+        </div>
+
+        <div class="usuario">
+            <button class="notificacao" type="button" aria-label="Notificações">
+                <i class="fa-regular fa-bell" aria-hidden="true"></i>
+                <span class="notificacao-ponto"></span>
+            </button>
+            <span class="avatar" aria-hidden="true">U</span>
+            <span class="nome-usuario">Usuário</span>
+            <i class="fa-solid fa-chevron-down seta" aria-hidden="true"></i>
+        </div>
+    </header>
+
+    <nav class="menu-lateral" id="menu-lateral" aria-label="Menu principal">
+        <ul>
+            <li class="atual"><a href="#" aria-current="page"><i class="fa-solid fa-house" aria-hidden="true"></i>Home</a></li>
+            <li><a href="../perfil/perfil.html"><i class="fa-regular fa-user" aria-hidden="true"></i>Perfil</a></li>
+            <li><a href="../chat/chat.html"><i class="fa-solid fa-robot" aria-hidden="true"></i>DotChat</a></li>
+            <li><a href="../library/library.html"><i class="fa-solid fa-book-open" aria-hidden="true"></i>Biblioteca</a></li>
+            <li><a href="#"><i class="fa-regular fa-newspaper" aria-hidden="true"></i>Provas</a></li>
+            <li><a href="#"><i class="fa-solid fa-clock-rotate-left" aria-hidden="true"></i>Histórico</a></li>
+            <li><a href="#"><i class="fa-solid fa-gear" aria-hidden="true"></i>Configurações</a></li>
+        </ul>
+    </nav>
+    <div class="menu-fundo" hidden></div>
+
+    <main class="conteudo">
+        <div class="mapa">
+
+            <section class="caminho-area" aria-labelledby="titulo-caminho">
+                <h1 id="titulo-caminho" class="visualmente-oculto">Mapa de níveis</h1>
+                <div class="caminho">
+                    <svg class="caminho-trilho" aria-hidden="true">
+                        <defs>
+                            <!-- Patinha com os dedos para cima; o JS gira cada uma no sentido do caminho. -->
+                            <symbol id="pata" viewBox="-12 -12 24 24">
+                                <ellipse cx="0" cy="4.5" rx="6" ry="5.2"/>
+                                <ellipse cx="-7.2" cy="-2.5" rx="2.5" ry="3.1" transform="rotate(-25 -7.2 -2.5)"/>
+                                <ellipse cx="-2.6" cy="-7.2" rx="2.5" ry="3.2" transform="rotate(-8 -2.6 -7.2)"/>
+                                <ellipse cx="2.6" cy="-7.2" rx="2.5" ry="3.2" transform="rotate(8 2.6 -7.2)"/>
+                                <ellipse cx="7.2" cy="-2.5" rx="2.5" ry="3.1" transform="rotate(25 7.2 -2.5)"/>
+                            </symbol>
+                        </defs>
+                        <path class="trilho-base"/>
+                        <path class="trilho-feito"/>
+                        <g class="patas"></g>
+                    </svg>
+                    <ol class="niveis"></ol>
+                    <div class="balao" role="dialog" aria-modal="false" hidden></div>
+                </div>
+            </section>
+
+            <aside class="lateral">
+                <section class="cartao cartao-trilha" aria-labelledby="trilha-titulo">
+                    <p class="sobretitulo">Sua trilha</p>
+                    <h2 id="trilha-titulo" class="trilha-titulo"></h2>
+                    <p class="trilha-descricao"></p>
+                    <div class="progresso" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                        <div class="progresso-barra"></div>
+                    </div>
+                    <p class="progresso-texto"></p>
+                    <button class="botao botao-continuar" type="button"></button>
+                </section>
+
+                <section class="cartao cartao-regra" aria-labelledby="regra-titulo">
+                    <h2 id="regra-titulo" class="cartao-titulo"><i class="fa-solid fa-paw" aria-hidden="true"></i> Como avançar</h2>
+                    <ul class="regra-lista">
+                        <li><strong>5 questões</strong> por nível.</li>
+                        <li>Acerte <strong>4 (70%)</strong> e o próximo nível abre.</li>
+                        <li>Errou? Tente de novo, <strong>sem limite</strong>.</li>
+                        <li>Sua <strong>melhor nota</strong> fica guardada, mesmo se refizer.</li>
+                    </ul>
+                </section>
+
+                <details class="cartao notas-equipe">
+                    <summary>Notas para a equipe <span>(não vai para o produto)</span></summary>
+                    <ul>
+                        <li><strong>Dados.</strong> Todo o caminho vem de <code>GET /me/progress</code> (ordem, título, estado, melhorPercentual): uma chamada, como pede a S5. Título e descrição da trilha vêm de <code>GET /tracks</code>, pública e cacheável.</li>
+                        <li><strong>Três estados, três visuais</strong> (RN-06). Concluído mostra a melhor nota (RN-05). Bloqueado não é botão (RN-07); a API recusa a submissão de qualquer forma.</li>
+                        <li><strong>Sem objetivo no balão.</strong> <code>objetivo</code> não vem no <code>/me/progress</code>. Mostrar exigiria mudar o contrato, e o freeze é 01/11. Ele aparece na Tela de Nível.</li>
+                        <li><strong>Sem capítulos.</strong> O banco não tem agrupamento de níveis; o caminho é a lista ordenada. Capítulos pediriam um campo novo em <code>Nivel</code>.</li>
+                        <li><strong>Fora de propósito:</strong> ofensiva, XP, vidas, ranking, ligas. Estão fora do MVP (regras de negócio, §6).</li>
+                        <li><strong>Trilha de exemplo:</strong> Banco de Dados, tirada da tela de questão do rascunho. A matéria real é da Gabrielly.</li>
+                        <li>Esta tela ocupa o lugar do mapa de mundo da Home atual e corresponde à rota <code>/mapa</code>.</li>
+                    </ul>
+                </details>
+            </aside>
+
+        </div>
+    </main>
+
+    <div class="simulacao" aria-label="Simulação do mockup">
+        <p class="simulacao-titulo"><i class="fa-solid fa-flask" aria-hidden="true"></i> Simulação (só no mockup)</p>
+        <div class="simulacao-botoes">
+            <button type="button" data-simular="aprovar">Aprovar nível atual (80%)</button>
+            <button type="button" data-simular="reprovar">Reprovar (60%)</button>
+            <button type="button" data-simular="reiniciar">Recomeçar</button>
+        </div>
+    </div>
+
+    <div class="aviso" role="status" aria-live="polite"></div>
+
+    <script src="./mapa.js"></script>
+</body>
+</html>
