@@ -6,9 +6,9 @@
 
 ---
 
-- [ ] **S1 · Publicar o contrato de rotas como documento vivo** — Uma fonte única de verdade para web e mobile. Toda mudança é anunciada no grupo.
-- [ ] **S4 · Padronizar o formato de resposta** — Toda rota devolve o mesmo envelope (`{ data, error }`). Consistência reduz bug de integração pela metade.
-- [ ] **S5 · Reduzir o número de chamadas por tela** — O mapa deve carregar com **uma** requisição, não com uma por nível. Em rede móvel, cada chamada extra custa segundos.
+- [x] **S1 · Publicar o contrato de rotas como documento vivo** — Uma fonte única de verdade para web e mobile. Toda mudança é anunciada no grupo.
+- [x] **S4 · Padronizar o formato de resposta** — Toda rota devolve o mesmo envelope (`{ data, error }`). Consistência reduz bug de integração pela metade. _Feito em 13/10: o contrato fixou: sucesso devolve o recurso direto, erro devolve { erro: { codigo, mensagem, campos } }._
+- [x] **S5 · Reduzir o número de chamadas por tela** — O mapa deve carregar com **uma** requisição, não com uma por nível. Em rede móvel, cada chamada extra custa segundos. _Feito em 13/10: GET /me/progress traz ordem, título e estado. O mapa carrega com uma chamada._
 - [ ] **S6 · Verificar tempo de resposta** — Nenhuma rota acima de 1 segundo em condição normal. Se passar, provavelmente falta índice no banco (falar com o Fabiano).
 - [ ] **S8 · Configurar cabeçalhos de cache** — Conteúdo de nível quase não muda; pode ser cacheado. Progresso de usuário, nunca.
 

@@ -46,6 +46,15 @@ cp .env.example .env
 Abra o `.env` e troque `POSTGRES_PASSWORD` por qualquer senha sua. Troque também dentro da
 `DATABASE_URL`, que repete a mesma senha.
 
+Depois gere o seu `JWT_SEGREDO` (é o que assina o login). Rode o comando abaixo, copie o texto que
+aparecer e cole no `.env`, no lugar de `gere-o-seu-com-o-comando-acima`:
+
+```bash
+node -e "console.log(require('crypto').randomBytes(48).toString('base64url'))"
+```
+
+Sem esse valor a API não sobe e avisa o motivo no terminal.
+
 > **O `.env` nunca vai para o Git.** Ele está no `.gitignore`. O que vai é o `.env.example`,
 > que tem os nomes das variáveis e nenhum valor real. Se você algum dia vir um `.env` aparecendo
 > em `git status`, pare e avise.
@@ -57,6 +66,12 @@ npm run db:up
 ```
 
 Confira que subiu: `docker ps` deve listar `dotstudy-postgres`.
+
+Crie as tabelas (rode de novo sempre que alguém mesclar uma migration nova na `main`):
+
+```bash
+npm run db:migrate
+```
 
 Para derrubar: `npm run db:down`. Os dados ficam salvos.
 
@@ -86,6 +101,17 @@ npm run dev:web
 | <http://localhost:3000/prototipos/menu/menu.html> | O protótipo com o menu lateral abrindo         |
 
 Se os quatro funcionam, seu ambiente está pronto. Essa é a tarefa `S0 · Montar o ambiente`.
+
+### 7. Rodar os testes da API
+
+Com o banco de pé:
+
+```bash
+npm run test:api
+```
+
+Roda os testes das regras de negócio e o fluxo completo (cadastro, login, mapa, nível, submissão,
+progresso). O teste cria os próprios dados e apaga tudo no final. Tem que terminar com tudo `passed`.
 
 ---
 

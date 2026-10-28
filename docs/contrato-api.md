@@ -1,16 +1,16 @@
 # DotStudy — Contrato da API
 
-**Status:** rascunho para revisão. **Responsável:** Pedro.
-**Tarefa:** `S1 · Definir o contrato da API antes de codar` (vencida em 06/09, prioridade Alta).
+**Status:** implementado em 13/10. Todas as rotas abaixo existem em `apps/api` e são verificadas pelo
+teste `apps/api/test/fluxo.e2e-spec.ts`. **Responsável:** Pedro.
+**Exceção:** `429 TENTATIVAS_EXCEDIDAS` ainda não existe (tarefa `S6 · Limitar tentativas de login`, do Gabriel).
 **Base URL local:** `http://localhost:3333`
 
 ---
 
 ## 1. Para que serve este documento
 
-Enquanto a API não existe, Alexandre (telas web), Fabio (multiplataforma) e o pessoal de mobile
-programam contra este papel. É o que permite quatro pessoas trabalharem na mesma semana sem uma
-esperar a outra.
+É o acordo entre quem faz tela e quem faz API. Alexandre (telas web) e Fabio (multiplataforma)
+programam contra este papel, e a API responde exatamente o que está escrito aqui.
 
 **Regra:** mudou o contrato, muda aqui primeiro e avisa no grupo. Rota que existe no código e não
 está neste arquivo é rota que ninguém vai consumir.
@@ -32,9 +32,9 @@ Toda falha, de qualquer rota, devolve exatamente esta forma. Sem exceção, sem 
 ```json
 {
   "erro": {
-    "codigo": "CREDENCIAIS_INVALIDAS",
-    "mensagem": "E-mail ou senha incorretos.",
-    "campos": { "email": "E-mail não encontrado." }
+    "codigo": "SENHA_FRACA",
+    "mensagem": "Alguns campos estão inválidos.",
+    "campos": { "senha": "A senha precisa ter pelo menos 8 caracteres." }
   }
 }
 ```
@@ -51,6 +51,24 @@ Toda falha, de qualquer rota, devolve exatamente esta forma. Sem exceção, sem 
 | 422  | Entrada com formato válido mas conteúdo recusado (senha curta)  |
 | 429  | Tentativas de login em excesso                                  |
 | 500  | Erro não previsto. Nunca vaza detalhe interno.                  |
+
+`campos` usa o caminho do campo como chave: `"senha"`, `"respostas.0.questaoId"`.
+
+Códigos genéricos, usados quando a falha não tem código próprio na rota:
+
+| Código                  | HTTP | Quando                                                        |
+| ----------------------- | ---- | ------------------------------------------------------------- |
+| `REQUISICAO_MALFORMADA` | 400  | JSON quebrado                                                 |
+| `NAO_AUTENTICADO`       | 401  | Rota protegida sem token, com token adulterado ou expirado    |
+| `NAO_ENCONTRADO`        | 404  | Rota que não existe                                           |
+| `DADOS_INVALIDOS`       | 422  | Campo faltando, tipo errado ou campo que não está no contrato |
+| `ERRO_INTERNO`          | 500  | Erro não previsto. O detalhe fica só no terminal da API.      |
+
+**Para o front:** decida o que mostrar pelo `codigo`, nunca pelo texto de `mensagem`. A mensagem
+pode mudar; o código só muda com aviso no grupo.
+
+**Sucesso:** a rota devolve o recurso direto no corpo, sem envelope `{ data }`. O que identifica erro
+é o status HTTP (4xx ou 5xx) e a chave `erro`.
 
 ---
 
@@ -91,7 +109,7 @@ Prova que o servidor sobe e responde. Não toca no banco.
 
 **200** mesma forma do register.
 
-**Erros:** `401 CREDENCIAIS_INVALIDAS` · `429 TENTATIVAS_EXCEDIDAS`
+**Erros:** `401 CREDENCIAIS_INVALIDAS` · `429 TENTATIVAS_EXCEDIDAS` (ainda não implementado)
 
 > A mensagem de 401 é sempre "E-mail ou senha incorretos", nunca "esse e-mail não existe".
 > Diferenciar as duas entrega a lista de quem tem conta para quem estiver testando de fora.
@@ -154,7 +172,10 @@ Conteúdo de um nível e as questões **sem gabarito** (RN-09).
 
 ### `GET /me/progress` — protegida
 
-Estado de cada nível para o usuário do token.
+Estado de cada nível para o usuário do token. É a única chamada que o mapa precisa: traz ordem,
+título e estado de cada nível.
+
+**Parâmetro opcional:** `?trilhaId=uuid`. Sem ele, usa a trilha mais antiga (no MVP existe uma).
 
 **200**
 
@@ -162,14 +183,34 @@ Estado de cada nível para o usuário do token.
 {
   "trilhaId": "uuid",
   "niveis": [
-    { "nivelId": "uuid", "ordem": 1, "estado": "concluido", "melhorPercentual": 80 },
-    { "nivelId": "uuid", "ordem": 2, "estado": "disponivel", "melhorPercentual": null },
-    { "nivelId": "uuid", "ordem": 3, "estado": "bloqueado", "melhorPercentual": null }
+    {
+      "nivelId": "uuid",
+      "ordem": 1,
+      "titulo": "...",
+      "estado": "concluido",
+      "melhorPercentual": 80
+    },
+    {
+      "nivelId": "uuid",
+      "ordem": 2,
+      "titulo": "...",
+      "estado": "disponivel",
+      "melhorPercentual": null
+    },
+    {
+      "nivelId": "uuid",
+      "ordem": 3,
+      "titulo": "...",
+      "estado": "bloqueado",
+      "melhorPercentual": null
+    }
   ]
 }
 ```
 
 `estado` é sempre um de: `bloqueado` | `disponivel` | `concluido`.
+
+**Erros:** `401` · `404 TRILHA_NAO_ENCONTRADA`
 
 ---
 
@@ -201,7 +242,11 @@ nível na mesma transação (RN-12).
 `proximoNivelLiberado` é `null` quando reprovou, quando o nível já estava concluído ou quando era
 o último da trilha.
 
-**Erros:** `401` · `403 NIVEL_BLOQUEADO` · `404` · `422 RESPOSTAS_INCOMPLETAS`
+**Erros:** `401` · `403 NIVEL_BLOQUEADO` · `404 NIVEL_NAO_ENCONTRADO` ·
+`422 RESPOSTAS_INCOMPLETAS` (faltou responder alguma questão) · `422 RESPOSTAS_INVALIDAS` (questão de
+outro nível, questão respondida duas vezes ou alternativa que não existe)
+
+Erro 422 não grava tentativa. Reprovar grava (RN-04).
 
 > Não existe rota separada de "concluir nível". A conclusão é consequência da aprovação nesta rota.
 > Uma rota que marca conclusão por fora seria um jeito de pular nível sem responder nada.
@@ -210,12 +255,15 @@ o último da trilha.
 
 ## 4. Decisões em aberto
 
-| #   | Pergunta                                                                                                                                    | Quem decide       | Até   |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | ----- |
-| C1  | Token em corpo JSON (localStorage) ou cookie httpOnly? Cookie é mais seguro contra XSS e mais chato de configurar com dois domínios locais. | Pedro e Gabriel   | 27/09 |
-| C2  | Tempo de expiração do token.                                                                                                                | Gabriel           | 20/09 |
-| C3  | `GET /levels/:id` de nível já concluído devolve o gabarito junto, para revisão?                                                             | Pedro e Gabrielly | 04/10 |
-| C4  | Paginação em `/tracks`: desnecessária com uma trilha. Fica de fora do MVP?                                                                  | Pedro             | 27/09 |
+A coluna "Implementado hoje" é a hipótese que destravou o código. Não é a decisão final: quem decide
+confirma ou troca, e a troca custa pouco porque está isolada no ponto indicado.
+
+| #   | Pergunta                                                                                                                                    | Quem decide       | Implementado hoje                                                    |
+| --- | ------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | -------------------------------------------------------------------- |
+| C1  | Token em corpo JSON (localStorage) ou cookie httpOnly? Cookie é mais seguro contra XSS e mais chato de configurar com dois domínios locais. | Pedro e Gabriel   | Token no corpo, enviado em `Authorization: Bearer`                   |
+| C2  | Tempo de expiração do token. Tamanho mínimo de senha.                                                                                       | Gabriel           | `JWT_EXPIRACAO=7d` no `.env`; senha de 8 a 128 em `auth/politica.ts` |
+| C3  | `GET /levels/:id` de nível já concluído devolve o gabarito junto, para revisão?                                                             | Pedro e Gabrielly | Não devolve. Mais seguro enquanto não houver decisão.                |
+| C4  | Paginação em `/tracks`: desnecessária com uma trilha. Fica de fora do MVP?                                                                  | Pedro             | Sem paginação                                                        |
 
 ---
 
