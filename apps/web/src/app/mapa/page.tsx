@@ -1,5 +1,11 @@
-// Rota vazia. Tarefa S1 de Telas Web: provar que a navegação funciona.
-// Conteúdo real vem depois. Contrato das rotas: docs/contrato-api.md
+import type { Metadata } from "next";
+import { MapaDeNiveis } from "./mapa-de-niveis";
+
+// Mapa de níveis. Visual: public/prototipos/mapa (mockup aprovado). Dados: GET /me/progress.
+export const metadata: Metadata = {
+  title: "Mapa de Níveis · DotStudy",
+};
+
 export default function Page() {
-  return <h1>Mapa de Níveis</h1>;
+  return <MapaDeNiveis />;
 }

@@ -22,6 +22,7 @@ até o HTML final ser produzido. Não é código descartado.
 | Perfil     | `perfil/perfil.html`          | `perfil.html` + `perfil.css` + `perfil.js` |
 | DotChat    | `chat/chat.html`              | `chat.html` + `chat.css` + `chat.js`    |
 | Biblioteca | `library/library.html`        | `library.html` + `library.css` + `library.js` |
+| Mapa de Níveis | `mapa/mapa.html`          | Não vem do rascunho. Mockup proposto em 28/10/2026 para o caminho de níveis (estilo Duolingo), já com variáveis de cor e responsivo. |
 
 Uma pasta por tela porque os links entre as páginas do rascunho já apontam para
 `../menu/menu.html`, `../perfil/perfil.html` etc. Com essa estrutura, nenhum link precisou ser editado.

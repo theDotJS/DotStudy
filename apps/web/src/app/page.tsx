@@ -44,6 +44,9 @@ export default function Home() {
         <li>
           <a href="/prototipos/library/library.html">Biblioteca</a>
         </li>
+        <li>
+          <a href="/prototipos/mapa/mapa.html">Mapa de Níveis (mockup, já implementado em /mapa)</a>
+        </li>
       </ul>
     </main>
   );
