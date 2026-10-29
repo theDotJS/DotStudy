@@ -9,6 +9,7 @@ export default function Home() {
       <p className="mt-2 text-sm opacity-70">Indice de desenvolvimento. Nao e tela do produto.</p>
 
       <h2 className="mt-8 text-xl font-semibold">Rotas do app</h2>
+      <p className="text-sm opacity-70">MVP, ligadas a API.</p>
       <ul className="mt-2 list-disc pl-6">
         <li>
           <Link href="/login">/login</Link>
@@ -21,6 +22,30 @@ export default function Home() {
         </li>
         <li>
           <Link href="/nivel/1">/nivel/[id]</Link>
+        </li>
+      </ul>
+
+      <h2 className="mt-8 text-xl font-semibold">Telas do rascunho fora do MVP</h2>
+      <p className="text-sm opacity-70">Visual do rascunho de design, com dados de exemplo.</p>
+      <ul className="mt-2 list-disc pl-6">
+        <li>
+          <Link href="/perfil">/perfil</Link>
+        </li>
+        <li>
+          <Link href="/dotchat">/dotchat</Link>
+        </li>
+        <li>
+          <Link href="/biblioteca">/biblioteca</Link> e <Link href="/biblioteca/matematica">/biblioteca/matematica</Link>
+        </li>
+        <li>
+          <Link href="/provas">/provas</Link> e <Link href="/provas/exatas">/provas/exatas</Link>
+        </li>
+        <li>
+          <Link href="/configuracoes">/configuracoes</Link> e{" "}
+          <Link href="/configuracoes/notificacoes">/configuracoes/notificacoes</Link>
+        </li>
+        <li>
+          <Link href="/em-construcao">/em-construcao</Link>
         </li>
       </ul>
 

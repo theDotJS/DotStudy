@@ -54,16 +54,16 @@ export function Topo({ menuAberto, aoAlternarMenu }: PropsDoTopo) {
   );
 }
 
-// Perfil, DotChat e Biblioteca estão fora do MVP: apontam para os protótipos em HTML,
-// como no rascunho. Provas, Histórico e Configurações ainda não têm tela.
+// Mesma lista do menu "|||" das telas do rascunho (src/app/(rascunho)/casca.tsx).
+// Histórico ainda não tem tela e cai em "em construção".
 const ITENS_DO_MENU = [
   { href: "/mapa", icone: "fa-solid fa-house", rotulo: "Home", atual: true },
-  { href: "/prototipos/perfil/perfil.html", icone: "fa-regular fa-user", rotulo: "Perfil" },
-  { href: "/prototipos/chat/chat.html", icone: "fa-solid fa-robot", rotulo: "DotChat" },
-  { href: "/prototipos/library/library.html", icone: "fa-solid fa-book-open", rotulo: "Biblioteca" },
-  { href: "#", icone: "fa-regular fa-newspaper", rotulo: "Provas" },
-  { href: "#", icone: "fa-solid fa-clock-rotate-left", rotulo: "Histórico" },
-  { href: "#", icone: "fa-solid fa-gear", rotulo: "Configurações" },
+  { href: "/perfil", icone: "fa-regular fa-user", rotulo: "Perfil" },
+  { href: "/dotchat", icone: "fa-solid fa-robot", rotulo: "DotChat" },
+  { href: "/biblioteca", icone: "fa-solid fa-book-open", rotulo: "Biblioteca" },
+  { href: "/provas", icone: "fa-regular fa-newspaper", rotulo: "Provas" },
+  { href: "/em-construcao", icone: "fa-solid fa-clock-rotate-left", rotulo: "Histórico" },
+  { href: "/configuracoes", icone: "fa-solid fa-gear", rotulo: "Configurações" },
 ];
 
 export function MenuLateral() {
@@ -72,17 +72,10 @@ export function MenuLateral() {
       <ul>
         {ITENS_DO_MENU.map((item) => (
           <li key={item.rotulo} className={item.atual ? styles.atual : undefined}>
-            {item.atual ? (
-              <Link href={item.href} aria-current="page">
-                <i className={item.icone} aria-hidden="true" />
-                {item.rotulo}
-              </Link>
-            ) : (
-              <a href={item.href}>
-                <i className={item.icone} aria-hidden="true" />
-                {item.rotulo}
-              </a>
-            )}
+            <Link href={item.href} aria-current={item.atual ? "page" : undefined}>
+              <i className={item.icone} aria-hidden="true" />
+              {item.rotulo}
+            </Link>
           </li>
         ))}
       </ul>

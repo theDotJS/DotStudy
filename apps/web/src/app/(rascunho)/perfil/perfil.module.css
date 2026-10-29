@@ -1,0 +1,148 @@
+.tela {
+    max-width: 1080px;
+}
+
+.cabecalho {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: start;
+    gap: clamp(16px, 7vw, 100px);
+}
+
+.foto {
+    width: clamp(110px, 13.3vw, 182px);
+    height: auto;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.identidade {
+    padding-top: 8px;
+    line-height: 1.2;
+}
+
+.nome {
+    font-size: clamp(30px, 3vw, 42px);
+    color: #fff;
+}
+
+.email {
+    font-size: clamp(24px, 2.5vw, 34px);
+    color: var(--creme);
+    overflow-wrap: anywhere;
+}
+
+.xp {
+    font-size: clamp(26px, 2.6vw, 36px);
+    color: #7ea85a;
+    padding-left: 1.6em;
+}
+
+.configuracoes {
+    margin-top: 6px;
+    padding: 0.5em 1.6em;
+    border-radius: 50%;
+    background: linear-gradient(180deg, #8b7563 0%, #5f4b3d 60%, rgba(52, 39, 29, 0) 100%);
+    color: var(--texto-pilula);
+    font-size: clamp(26px, 2.4vw, 34px);
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.configuracoes:hover {
+    filter: brightness(1.15);
+}
+
+.configuracoes:focus-visible,
+.apostila:focus-visible {
+    outline: 3px solid var(--amarelo);
+    outline-offset: 3px;
+}
+
+.secao {
+    margin: clamp(36px, 6vw, 70px) 0 clamp(20px, 4vw, 50px) clamp(0px, 5vw, 70px);
+    font-size: clamp(30px, 3vw, 42px);
+    color: var(--texto-apagado);
+}
+
+.cartoes {
+    display: grid;
+    gap: clamp(20px, 5vw, 76px);
+    max-width: 720px;
+}
+
+.cartao {
+    padding: clamp(14px, 2vw, 22px) clamp(56px, 10vw, 140px) clamp(20px, 2.6vw, 34px) clamp(20px, 4vw, 60px);
+    border-radius: 0 160px 160px 0;
+    background: linear-gradient(90deg, rgba(52, 39, 29, 0) 0%, #5f4b3d 45%, #8b7563 100%);
+}
+
+.cartaoApostilas {
+    border-radius: 0 220px 220px 0;
+}
+
+.tituloDoCartao {
+    font-size: clamp(28px, 2.7vw, 38px);
+    color: var(--texto-pilula);
+    margin-bottom: 14px;
+}
+
+.linhaDaBarra {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.barra {
+    flex: 1;
+    height: clamp(40px, 5.5vw, 76px);
+}
+
+.percentual {
+    font-size: clamp(40px, 5vw, 64px);
+    font-weight: 400;
+    color: #fff;
+    min-width: 2em;
+}
+
+.pequena .barra {
+    flex: 0 1 180px;
+    height: 32px;
+}
+
+.pequena .percentual {
+    font-size: 30px;
+}
+
+.apostila {
+    display: inline-grid;
+    justify-items: center;
+    gap: 6px;
+    margin-bottom: 12px;
+    text-decoration: none;
+}
+
+.nomeDaApostila {
+    font-size: clamp(14px, 1.3vw, 18px);
+}
+
+.capa {
+    width: 162px;
+    height: auto;
+}
+
+@media (max-width: 720px) {
+    .cabecalho {
+        grid-template-columns: auto 1fr;
+    }
+
+    .configuracoes {
+        grid-column: 1 / -1;
+        justify-self: start;
+    }
+
+    .cartao {
+        border-radius: 0 60px 60px 0;
+    }
+}
