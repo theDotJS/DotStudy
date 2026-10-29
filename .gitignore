@@ -1,0 +1,48 @@
+# ---- Segredos. Nunca versionar. (tarefa S0 de Seguranca) ----
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# ---- Dependencias ----
+node_modules/
+.pnp
+.pnp.js
+
+# ---- Build ----
+.next/
+out/
+build/
+dist/
+*.tsbuildinfo
+
+# ---- Cache de ferramentas ----
+.eslintcache
+.turbo/
+coverage/
+.nyc_output/
+
+# ---- Banco local ----
+/infra/postgres-data/
+*.sqlite
+*.sqlite3
+
+# ---- Editor e SO ----
+.vscode/*
+!.vscode/extensions.json
+.idea/
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.swp
+
+# ---- Logs ----
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Config local de ferramenta de IA. Nao e do projeto.
+.claude/

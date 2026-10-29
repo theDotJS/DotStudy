@@ -1,0 +1,7 @@
+node_modules/
+.next/
+dist/
+build/
+coverage/
+package-lock.json
+apps/web/public/prototipos/vendor/

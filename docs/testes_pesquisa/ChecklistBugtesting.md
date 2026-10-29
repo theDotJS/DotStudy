@@ -6,9 +6,9 @@
 
 ---
 
-- [X] **S0 · Escolher onde os bugs vivem** — GitHub Issues, Trello ou Jira. Um lugar só. Bug relatado em conversa de WhatsApp se perde.
-- [X] **S0 · Criar o modelo de relato de bug** — Campos obrigatórios: o que eu fiz, o que eu esperava, o que aconteceu, navegador/aparelho, print. **RISCO:** "não funciona" gasta mais tempo do dev do que o bug em si.
-- [X] **S1 · Definir a escala de severidade** — Crítico (trava o uso), Alto (feature quebrada com desvio possível), Médio (comportamento errado sem travar), Baixo (visual). Só Crítico e Alto param a sprint.
+- [x] **S0 · Escolher onde os bugs vivem** — GitHub Issues, Trello ou Jira. Um lugar só. Bug relatado em conversa de WhatsApp se perde.
+- [x] **S0 · Criar o modelo de relato de bug** — Campos obrigatórios: o que eu fiz, o que eu esperava, o que aconteceu, navegador/aparelho, print. **RISCO:** "não funciona" gasta mais tempo do dev do que o bug em si.
+- [x] **S1 · Definir a escala de severidade** — Crítico (trava o uso), Alto (feature quebrada com desvio possível), Médio (comportamento errado sem travar), Baixo (visual). Só Crítico e Alto param a sprint.
 - [ ] **S3 · Escrever os roteiros de teste** — Passo a passo do que testar em cada tela, com resultado esperado. Escrever **antes** da tela existir, a partir dos desenhos da Lana.
 - [ ] **S4 · Começar o teste exploratório da autenticação** — Cadastrar com e-mail repetido, senha vazia, e-mail sem `@`, senha de 1 caractere, campos com espaço. Quebrar de propósito é o trabalho.
 - [ ] **S6 · Testar o fluxo completo do nível** — Responder tudo certo, tudo errado, metade, sair no meio, voltar, recarregar a página no meio do exercício.
@@ -21,17 +21,17 @@
 
 ## Calendário de Responsabilidades
 
-| Semana | Datas | Marco |
-|---|---|---|
-| S0 | 24–30/08 | Setup: repositório, ambientes, decisões D1–D4 |
-| S1 | 31/08–06/09 | Modelagem e protótipo |
-| S2 | 07–13/09 | Fundação: banco no ar, primeira tela |
-| S3 | 14–20/09 | Autenticação funcionando ponta a ponta |
-| S4 | 21–27/09 | Conteúdo gerado e aprovado |
-| S5 | 28/09–04/10 | Mapa de níveis navegável |
-| S6 | 05–11/10 | Exercícios e correção |
-| S7 | 12–18/10 | Progressão e desbloqueio (**MVP fecha aqui**) |
-| S8 | 19–25/10 | Responsivo, PWA, deploy público |
-| S9 | 26/10–01/11 | Betateste com usuários reais. **Freeze em 01/11** |
-| S10 | 02–08/11 | Correção de bugs e escrita da monografia |
-| — | 09–15/11 | Entrega e ensaio de apresentação |
+| Semana | Datas       | Marco                                             |
+| ------ | ----------- | ------------------------------------------------- |
+| S0     | 24–30/08    | Setup: repositório, ambientes, decisões D1–D4     |
+| S1     | 31/08–06/09 | Modelagem e protótipo                             |
+| S2     | 07–13/09    | Fundação: banco no ar, primeira tela              |
+| S3     | 14–20/09    | Autenticação funcionando ponta a ponta            |
+| S4     | 21–27/09    | Conteúdo gerado e aprovado                        |
+| S5     | 28/09–04/10 | Mapa de níveis navegável                          |
+| S6     | 05–11/10    | Exercícios e correção                             |
+| S7     | 12–18/10    | Progressão e desbloqueio (**MVP fecha aqui**)     |
+| S8     | 19–25/10    | Responsivo, PWA, deploy público                   |
+| S9     | 26/10–01/11 | Betateste com usuários reais. **Freeze em 01/11** |
+| S10    | 02–08/11    | Correção de bugs e escrita da monografia          |
+| —      | 09–15/11    | Entrega e ensaio de apresentação                  |

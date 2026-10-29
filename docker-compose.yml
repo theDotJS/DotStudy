@@ -1,0 +1,28 @@
+# Banco de dados local do DotStudy.
+# Sobe com:  docker compose up -d
+# Derruba com: docker compose down       (os dados ficam)
+# Apaga tudo:  docker compose down -v    (os dados somem)
+#
+# Quem nao conseguir rodar Docker no Windows: ver o fallback no README.md.
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: dotstudy-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - dotstudy-postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  dotstudy-postgres-data:

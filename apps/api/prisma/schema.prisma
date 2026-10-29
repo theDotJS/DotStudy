@@ -1,0 +1,144 @@
+// =============================================================
+// DotStudy - modelo de dados
+//
+// RASCUNHO para validacao do Fabiano, com Pedro e Gabriel.
+// Passo 5 da secao "Os cinco primeiros passos" do plano de desenvolvimento.
+//
+// Cada tabela aqui existe para atender uma regra de docs/regras-de-negocio.md.
+// Tabela sem regra correspondente e escopo inflado: nao entra.
+// =============================================================
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// RN-13: e-mail unico. RN-14: senha so como hash, nunca texto puro.
+model Usuario {
+  id        String   @id @default(uuid())
+  nome      String
+  email     String   @unique
+  senhaHash String
+  criadoEm  DateTime @default(now())
+
+  tentativas Tentativa[]
+  conclusoes ConclusaoNivel[]
+
+  @@map("usuarios")
+}
+
+// No MVP existe UMA trilha. A tabela existe para o modelo nao mentir,
+// nao porque haja plano de criar varias antes de 15/11.
+model Trilha {
+  id        String   @id @default(uuid())
+  titulo    String
+  descricao String
+  criadoEm  DateTime @default(now())
+
+  niveis Nivel[]
+
+  @@map("trilhas")
+}
+
+// RN-02 depende de `ordem`: um nivel abre quando o de ordem anterior fecha.
+// A unicidade de (trilhaId, ordem) e o que impede dois niveis 3 na mesma trilha,
+// situacao em que a regra de desbloqueio nao teria resposta definida.
+model Nivel {
+  id       String @id @default(uuid())
+  trilhaId String
+  ordem    Int
+  titulo   String
+  objetivo String
+  conteudo String @db.Text
+
+  trilha     Trilha           @relation(fields: [trilhaId], references: [id], onDelete: Cascade)
+  fontes     Fonte[]
+  questoes   Questao[]
+  tentativas Tentativa[]
+  conclusoes ConclusaoNivel[]
+
+  @@unique([trilhaId, ordem])
+  @@map("niveis")
+}
+
+// A citacao da fonte e o diferencial que o TCC defende. Por isso e tabela,
+// nao um campo de texto solto dentro do conteudo.
+model Fonte {
+  id      String @id @default(uuid())
+  nivelId String
+  titulo  String
+  url     String
+
+  nivel Nivel @relation(fields: [nivelId], references: [id], onDelete: Cascade)
+
+  @@map("fontes")
+}
+
+model Questao {
+  id        String @id @default(uuid())
+  nivelId   String
+  ordem     Int
+  enunciado String @db.Text
+
+  nivel        Nivel         @relation(fields: [nivelId], references: [id], onDelete: Cascade)
+  alternativas Alternativa[]
+
+  @@unique([nivelId, ordem])
+  @@map("questoes")
+}
+
+// RN-09: o campo `correta` NUNCA sai do servidor antes da submissao.
+// Quem escrever o select desta tabela numa rota de leitura precisa excluir
+// esse campo explicitamente.
+model Alternativa {
+  id        String  @id @default(uuid())
+  questaoId String
+  rotulo    String // "a", "b", "c", "d"
+  texto     String
+  correta   Boolean @default(false)
+
+  questao Questao @relation(fields: [questaoId], references: [id], onDelete: Cascade)
+
+  @@unique([questaoId, rotulo])
+  @@map("alternativas")
+}
+
+// RN-04: tentar de novo e ilimitado, entao cada tentativa vira uma linha.
+// Guardar o historico tambem da material de analise para a monografia.
+model Tentativa {
+  id         String   @id @default(uuid())
+  usuarioId  String
+  nivelId    String
+  acertos    Int
+  total      Int
+  percentual Int
+  aprovado   Boolean
+  criadoEm   DateTime @default(now())
+
+  usuario Usuario @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
+  nivel   Nivel   @relation(fields: [nivelId], references: [id], onDelete: Cascade)
+
+  @@index([usuarioId, nivelId])
+  @@map("tentativas")
+}
+
+// RN-05: refazer nivel concluido nao diminui pontuacao. Por isso guardamos
+// `melhorPercentual` e nunca o ultimo. RN-12: esta linha e o `proximoNivelLiberado`
+// nascem na mesma transacao.
+model ConclusaoNivel {
+  id               String   @id @default(uuid())
+  usuarioId        String
+  nivelId          String
+  melhorPercentual Int
+  concluidoEm      DateTime @default(now())
+
+  usuario Usuario @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
+  nivel   Nivel   @relation(fields: [nivelId], references: [id], onDelete: Cascade)
+
+  @@unique([usuarioId, nivelId])
+  @@map("conclusoes_nivel")
+}
