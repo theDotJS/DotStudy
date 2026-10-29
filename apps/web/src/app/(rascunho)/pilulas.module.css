@@ -1,0 +1,28 @@
+/* Grades de pílulas usadas em Provas, Biblioteca e Configurações. */
+
+.grade {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: clamp(20px, 13vw, 190px);
+    row-gap: clamp(28px, 9vw, 130px);
+    max-width: 1000px;
+    margin: clamp(24px, 6vw, 90px) auto 0;
+}
+
+/* Pílulas mais altas, como em Provas e Biblioteca. */
+.alta {
+    min-height: clamp(96px, 13.6vw, 186px);
+}
+
+.icone {
+    font-size: 0.8em;
+    color: var(--creme);
+    opacity: 0.85;
+}
+
+@media (max-width: 640px) {
+    .grade {
+        grid-template-columns: minmax(0, 1fr);
+        row-gap: 24px;
+    }
+}

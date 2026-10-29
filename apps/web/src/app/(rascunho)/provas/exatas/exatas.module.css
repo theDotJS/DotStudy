@@ -1,0 +1,130 @@
+.busca {
+    position: relative;
+    width: min(394px, 100%);
+    margin: calc(-1 * clamp(10px, 3.4vw, 46px)) auto clamp(24px, 4vw, 52px);
+}
+
+.busca input {
+    width: 100%;
+    height: clamp(56px, 5.8vw, 78px);
+    border: 3px solid #000;
+    border-radius: 999px;
+    background-color: var(--fundo);
+    color: #fff;
+    font-family: "Saira", sans-serif;
+    font-size: clamp(20px, 2.2vw, 30px);
+    padding: 0 3em 0 1em;
+}
+
+.busca input::placeholder {
+    color: #fff;
+}
+
+.busca input:focus-visible {
+    outline: 3px solid var(--amarelo);
+    outline-offset: 2px;
+}
+
+.busca i {
+    position: absolute;
+    right: 1em;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: clamp(24px, 3vw, 40px);
+    color: #fff;
+    pointer-events: none;
+}
+
+.vazio {
+    text-align: center;
+    font-size: 28px;
+    color: var(--texto-pilula);
+}
+
+.grade {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 242px));
+    justify-content: space-between;
+    row-gap: clamp(32px, 8vw, 110px);
+}
+
+.cartao {
+    display: grid;
+    justify-items: center;
+    align-content: start;
+    gap: 14px;
+    min-height: 232px;
+    padding: 18px 10px 24px;
+    border-radius: 26px;
+    background: linear-gradient(180deg, var(--taupe) 0%, #6f5a4b 60%, var(--fundo) 100%);
+}
+
+.nome {
+    font-size: clamp(18px, 1.9vw, 24px);
+    text-align: center;
+}
+
+.linhaDaBarra {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.barra {
+    flex: 1;
+    height: 32px;
+}
+
+.percentual {
+    font-size: 30px;
+    font-weight: 400;
+    color: var(--creme);
+    min-width: 2.2em;
+}
+
+.comecar {
+    margin-top: 14px;
+    width: 86%;
+    padding: 4px 0;
+    border-radius: 0 999px 999px 0;
+    background: linear-gradient(90deg, #4a3427, #9b7d1f 70%, #b89a22);
+    color: var(--creme);
+    font-size: 30px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.comecar:hover {
+    filter: brightness(1.12);
+}
+
+.comecar:focus-visible {
+    outline: 3px solid var(--amarelo);
+    outline-offset: 3px;
+}
+
+.feito {
+    display: grid;
+    place-items: center;
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background-color: var(--amarelo);
+    color: #3b3330;
+    font-size: 40px;
+}
+
+@media (max-width: 900px) {
+    .grade {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        column-gap: 20px;
+    }
+}
+
+@media (max-width: 520px) {
+    .grade {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}

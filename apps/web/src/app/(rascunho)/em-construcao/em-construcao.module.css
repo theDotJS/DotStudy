@@ -1,0 +1,10 @@
+.tela {
+    padding-top: clamp(8px, 2vw, 24px);
+    margin: 0 calc(-1 * clamp(14px, 6vw, 96px));
+}
+
+.obras {
+    display: block;
+    width: 100%;
+    height: auto;
+}

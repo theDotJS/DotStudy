@@ -26,8 +26,42 @@ export function salvarToken(token: string): void {
 export function apagarToken(): void {
   try {
     localStorage.removeItem(CHAVE_DO_TOKEN);
+    localStorage.removeItem(CHAVE_DO_USUARIO);
   } catch {
     // Nada a apagar.
+  }
+}
+
+// O contrato não tem rota de "quem sou eu": nome e e-mail vêm na resposta do login e do cadastro
+// e ficam guardados junto do token, para o perfil e o topo mostrarem.
+const CHAVE_DO_USUARIO = "dotstudy.usuario";
+
+export interface Usuario {
+  id: string;
+  nome: string;
+  email: string;
+}
+
+export interface RespostaDeSessao {
+  token: string;
+  usuario: Usuario;
+}
+
+export function salvarSessao(sessao: RespostaDeSessao): void {
+  salvarToken(sessao.token);
+  try {
+    localStorage.setItem(CHAVE_DO_USUARIO, JSON.stringify(sessao.usuario));
+  } catch {
+    // Sem armazenamento, o perfil mostra o texto padrão.
+  }
+}
+
+// Devolve o texto cru (estável entre chamadas) para servir de snapshot do useSyncExternalStore.
+export function lerUsuarioSalvo(): string | null {
+  try {
+    return localStorage.getItem(CHAVE_DO_USUARIO);
+  } catch {
+    return null;
   }
 }
 
