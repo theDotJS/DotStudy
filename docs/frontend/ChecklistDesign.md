@@ -6,11 +6,11 @@
 
 ---
 
-- [ ] **S1 · Fechar identidade da marca** — O gato preto de olhos amarelos já é forte e consistente nas duas imagens. Mantenham. Definir versões: logo completo, ícone isolado, versão mono.
-- [ ] **S1 · Decidir design do mascote** — Falando no gato, acabar ele de vez já é uma ótima ideia.
-- [ ] **S2 · Produzir o set de ícones** — Home, Perfil, Biblioteca, Provas, Histórico, Configurações. Mesmo estilo, mesma grade, mesma espessura.
-- [ ] **S3 · Desenhar os assets do mapa** — Caminho, nó, marcadores de cenário. Se for pixel art, definir a grade base (16×16 ou 32×32) e não sair dela.
-- [ ] **S4 · Checar contraste de texto** — Texto sobre fundo precisa passar em contraste 4.5:1. O amarelo da imagem 2 com texto claro provavelmente reprova. Ferramenta: WebAIM Contrast Checker.
+- [X] **S1 · Fechar identidade da marca** — O gato preto de olhos amarelos já é forte e consistente nas duas imagens. Mantenham. Definir versões: logo completo, ícone isolado, versão mono.
+- [X] **S1 · Decidir design do mascote** — Falando no gato, acabar ele de vez já é uma ótima ideia.
+- [X] **S2 · Produzir o set de ícones** — Home, Perfil, Biblioteca, Provas, Histórico, Configurações. Mesmo estilo, mesma grade, mesma espessura.
+- [X] **S3 · Desenhar os assets do mapa** — Caminho, nó, marcadores de cenário. Se for pixel art, definir a grade base (16×16 ou 32×32) e não sair dela.
+- [X] **S4 · Checar contraste de texto** — Texto sobre fundo precisa passar em contraste 4.5:1. O amarelo da imagem 2 com texto claro provavelmente reprova. Ferramenta: WebAIM Contrast Checker.
 - [ ] **S5 · Definir o feedback visual de acerto e erro** — Cor, ícone, movimento. **RISCO:** verde e vermelho sozinhos excluem daltônicos. Sempre acompanhar de ícone ou texto.
 - [ ] **S6 · Tela de perfil e barra de progresso** — Elemento que mostra "você está no nível 4 de 10". É o gancho de retorno do usuário.
 - [ ] **S7 · Revisão de consistência** — Percorrer o site inteiro procurando cor fora do sistema, espaçamento irregular, botão diferente. Lista de correções para a S8.
